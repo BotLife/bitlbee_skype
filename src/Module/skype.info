@@ -1,0 +1,3 @@
+name           = Bitlbee Skype
+class          = Skype
+autoload       = true
