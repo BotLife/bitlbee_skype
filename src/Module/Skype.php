@@ -11,6 +11,16 @@ class Skype extends AModule
         'onConnect', 'onPrivMsg'
     );
     
+    public function __construct()
+    {
+        $starRating = new Skype\Dao\StarRating;
+        \DataGetter::addCallback(
+        	'star-rating', 'star-rating-nocolor',
+            array($starRating, 'getRating'), 60
+        );
+        parent::__construct();
+    }
+    
     public function onConnect()
     {
         \Ircbot\privMsg('&bitlbee', 'id YayBotLife');
